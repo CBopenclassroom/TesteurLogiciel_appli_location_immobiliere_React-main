@@ -1,0 +1,33 @@
+header img {
+    width: 210px;
+    height: 68px;
+}
+
+header {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 45px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    align-self: center;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    gap: 57px;
+    margin: 0;
+}
+
+nav ul a {
+    font-size: 24px;
+    color: black;
+    text-decoration: none;
+}

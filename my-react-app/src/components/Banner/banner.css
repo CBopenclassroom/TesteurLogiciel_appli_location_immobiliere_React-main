@@ -1,0 +1,27 @@
+.banner-container {
+    max-width: 1240px;
+    height: 223px;
+    border-radius: 25px;
+    position: relative;
+}
+
+.banner-container img {
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+    border-radius: 25px;
+}
+
+.banner-container p {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: 500;
+    font-size: 48px;
+    text-align: center;
+    margin: 0;
+    width: 100%;
+
+}
