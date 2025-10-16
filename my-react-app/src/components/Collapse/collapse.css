@@ -1,0 +1,54 @@
+.content {
+    display: none;
+    
+    
+}
+
+.collapse-wrapper{
+    font-weight: bold;
+}
+
+.content.active {
+    display: block;
+    background-color: #F6F6F673;
+}
+
+.collapsible.rotated-image {
+    transform: rotate(-180deg);
+    transition: transform 0.2s linear;
+}
+
+.collapsible {
+    transform: rotate(0deg);
+    transition: transform 0.2s linear;
+}
+
+.collapse-container {
+    display: flex;
+    flex-direction: row;
+    height: 52px;
+    background-color: #FF6060;
+    justify-content: space-between;
+    border-radius: 10px;
+    color: white;
+}
+
+
+
+.collapse-container img {
+    height: 13px;
+    width: 24px;
+    margin: 0px;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+.collapse-container p {
+    margin-left: 10px;
+    
+}
+
+.content p {
+    margin-left: 10px;
+    font-size: 18px;
+}
