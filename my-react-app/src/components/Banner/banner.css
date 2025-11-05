@@ -3,6 +3,9 @@
     height: 223px;
     border-radius: 25px;
     position: relative;
+
+    margin-top: 50px;
+
 }
 
 .banner-container img {
@@ -25,5 +28,20 @@
     margin: 0;
     width: 100%;
     font-weight: bold;
+
+}
+
+@media screen and (max-width: 768px) {
+
+    .banner-container {
+        height: 111px;
+        margin-top: 20px;
+    }
+
+    .banner-container p {
+
+        font-size: 24px;
+
+    }
 
 }

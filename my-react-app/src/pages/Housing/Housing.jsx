@@ -35,35 +35,39 @@ function Housing() {
     return (<p> Chargement en cours </p>)
   }
 
+  const fullName = property.host?.name.split(" ");
+
 
   return (
     <main>
       <Carousel pictures={property.pictures} />
       <div className='property-infos-container'>
 
-        <div className='title-host'>
-          <div className='title'>
-            <h2>{property.title}</h2>
-            <p>{property.location}</p>
+        <div className='essentials'>
+          <div className='title-tags'>
+            <div className='title'>
+              <h2>{property.title}</h2>
+              <p>{property.location}</p>
+            </div>
+
+            <div className='tags'>
+              {property.tags?.map(tag =>
+                <span key={tag}>{tag}</span>
+              )}
+            </div>
+
           </div>
 
-          <div className='host'>
-            <p>{property.host?.name}</p>
-            <img src={property.host?.picture} alt={property.host?.name}></img>
-          </div>
+          <div className='rating-host'>
+            <div className='host'>
+              <p>{fullName[0]}<br/>{fullName[1]}</p>
+              <img src={property.host?.picture} alt={property.host?.name}></img>
+            </div>
 
-        </div>
+            <div className='rating'>
+              <Ratings rating={property.rating} />
 
-        <div className='tag-rating'>
-          <div className='tags'>
-            {property.tags?.map(tag =>
-              <button key={tag}>{tag}</button>
-            )}
-          </div>
-
-          <div className='rating'>
-            <Ratings rating={property.rating} />
-
+            </div>
           </div>
         </div>
 
