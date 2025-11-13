@@ -3,6 +3,9 @@
     height: 415px;
     border-radius: 25px;
     position: relative;
+
+    margin-top: 50px;
+
 }
 
 .carousel {
@@ -22,4 +25,39 @@
     position: absolute;
     top: 35%;
     left: 90%;
+}
+
+.carousel-container p {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    color: white;
+}
+
+@media screen and (max-width: 768px) {
+
+    .carousel-container p {
+        display: none;
+    }
+
+    .carousel-container {
+        height: 255px;
+    }
+
+    .right-arrow {
+
+        height: 20px;
+        left: 94%;
+        top: 45%;
+
+
+    }
+
+    .left-arrow {
+
+        height: 20px;
+        right: 94%;
+        top: 45%;
+    }
+
 }

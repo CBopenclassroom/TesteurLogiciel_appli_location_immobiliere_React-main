@@ -1,18 +1,18 @@
-.error-container h1{
+.error-container h1 {
     color: #FF6060;
     font-size: 288px;
     display: flex;
     justify-self: center;
 }
 
-.error-container p{
+.error-container p {
     color: #FF6060;
     font-size: 36px;
     display: flex;
     justify-self: center;
 }
 
-.error-container a{
+.error-container a {
     display: flex;
     margin-top: 100px;
     margin-bottom: 139px;
@@ -20,5 +20,37 @@
     color: black;
 }
 
+@media screen and (max-width: 768px) {
 
 
+
+    main {
+        margin: 0 20px;
+    }
+
+    .error-container h1 {
+        font-size: 96px;
+
+    }
+
+    .error-container p {
+
+        font-size: 18px;
+        width: 260px;
+        text-align: center;
+
+    }
+
+    .error-container a {
+        font-size: 14px;
+        margin-top: 113px;
+        margin-bottom: 113px;
+        text-decoration: underline;
+    }
+
+
+
+
+
+
+}

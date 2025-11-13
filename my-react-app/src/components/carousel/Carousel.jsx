@@ -26,8 +26,9 @@ function Carousel({ pictures }) {
     return (
         <div className="carousel-container">
             <img className="carousel" src={pictures[Index]} alt='' />
-            <img className="right-arrow" src={rightArrow} onClick={goFoward} />
+            {pictures.length > 1 && (<><img className="right-arrow" src={rightArrow} onClick={goFoward} />
             <img className="left-arrow" src={leftArrow} onClick={goBack} />
+            <p>{Index+1}/{pictures.length}</p></>)}
         </div>
     )
 }

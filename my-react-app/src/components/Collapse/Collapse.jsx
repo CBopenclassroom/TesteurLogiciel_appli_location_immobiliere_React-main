@@ -11,7 +11,7 @@ function Collapse({ title, text }) {
         <div className="collapse-wrapper">
             <div className="collapse-container">
                 <p>{title}</p>
-                <img src={vector} className={`collapsible ${isCollapsed ? 'rotated-image' : ''}`} onClick={() => setIsCollapsed(!isCollapsed)}></img>
+                <img src={vector} alt="vector" className={`collapsible ${isCollapsed ? 'rotated-image' : ''}`} onClick={() => setIsCollapsed(!isCollapsed)}></img>
             </div>
 
             <div className={`content ${isCollapsed ? 'active' : ''}`}>
