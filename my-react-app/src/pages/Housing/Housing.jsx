@@ -12,15 +12,12 @@ function Housing() {
   const { id } = useParams()
 
   const [property, setProperty] = useState(null)
-  const [propertypictures, setPictures] = useState([])
 
   useEffect(() => {
     const fetchProperty = async () => {
       const response = await fetch('http://localhost:8080/api/properties/' + id);
       const data = await response.json();
       setProperty(data)
-      setPictures(data.pictures)
-      console.log(data)
     };
 
 
@@ -60,7 +57,7 @@ function Housing() {
 
           <div className='rating-host'>
             <div className='host'>
-              <p>{fullName[0]}<br/>{fullName[1]}</p>
+              <p>{fullName[0]}<br />{fullName[1]}</p>
               <img src={property.host?.picture} alt={property.host?.name}></img>
             </div>
 
