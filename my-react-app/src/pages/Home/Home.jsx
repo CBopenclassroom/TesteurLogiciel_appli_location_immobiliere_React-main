@@ -7,12 +7,22 @@ import React, { useState, useEffect } from 'react';
 function Home() {
 
   const [properties, setProperties] = useState([])
+  const [error, setError] = useState(null)
 
   useEffect(() => {
     const fetchProperties = async () => {
-      const response = await fetch('http://localhost:8080/api/properties');
-      const data = await response.json();
-      setProperties(data)
+      try {
+        const response = await fetch('http://localhost:8080/api/properties');
+        if (!response.ok) {
+          throw new Error("erreur lors de la récupération des propriétés")
+        }
+        const data = await response.json();
+        setProperties(data)
+      } catch (error) {
+        console.log(error)
+        setError(error)
+      }
+
     };
 
 
@@ -22,6 +32,9 @@ function Home() {
 
 
 
+  if (error) {
+    return (<p>{error}</p>)
+  }
 
 
 
@@ -30,15 +43,15 @@ function Home() {
     <main>
       <Banner image={bannerHome} text={"Chez vous, partout et ailleurs"} />
       <div className="housings-container">
-       <div className='housing-grid'>
-         {properties.map(property=>
-          <Link key={property.id} to={`/housing/${property.id}`}><figure>
-            <img src={property.cover} alt={property.title}/>
-            <p>{property.title}</p>
-          </figure>
-          </Link>
-        )}
-       </div>
+        <div className='housing-grid'>
+          {properties.map(property =>
+            <Link key={property.id} to={`/housing/${property.id}`}><figure>
+              <img src={property.cover} alt={property.title} />
+              <p>{property.title}</p>
+            </figure>
+            </Link>
+          )}
+        </div>
       </div>
     </main>
   )

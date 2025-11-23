@@ -12,12 +12,24 @@ function Housing() {
   const { id } = useParams()
 
   const [property, setProperty] = useState(null)
+  const [error, setError] = useState(null)
 
   useEffect(() => {
     const fetchProperty = async () => {
-      const response = await fetch('http://localhost:8080/api/properties/' + id);
-      const data = await response.json();
-      setProperty(data)
+      try {
+        const response = await fetch('http://localhost:8080/api/properties/' + id);
+        if (!response.ok) {
+          throw new Error("Erreur dans la récupération de la propriété")
+        }
+        const data = await response.json();
+        setProperty(data)
+
+      } catch (error) {
+        console.log(error)
+        setError(error)
+      }
+
+
     };
 
 
@@ -25,14 +37,18 @@ function Housing() {
 
 
 
-  }, []);
+  }, [id]);
+
+
+  if (error) {
+    return (<p>{error}</p>)
+  }
 
   if (!property) {
-    console.log(property)
     return (<p> Chargement en cours </p>)
   }
 
-  const fullName = property.host?.name.split(" ");
+  const fullName = property.host?.name.split(" ") ?? [];
 
 
   return (
@@ -57,7 +73,7 @@ function Housing() {
 
           <div className='rating-host'>
             <div className='host'>
-              <p>{fullName[0]}<br />{fullName[1]}</p>
+              <p>{fullName[0] ?? ""}<br />{fullName[1] ?? ""}</p>
               <img src={property.host?.picture} alt={property.host?.name}></img>
             </div>
 
